@@ -1,0 +1,28 @@
+{
+  "name": "deepclone",
+  "version": "1.0.0",
+  "description": "Implementing deep-clone and handling circular references",
+  "main": "index.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "comp": "tsc -p ./",
+    "test": "npm run comp && node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w-xuefeng/DeepClone.git"
+  },
+  "keywords": [
+    "deepclone",
+    "circular",
+    "reference"
+  ],
+  "author": "w-xuefeng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/w-xuefeng/DeepClone/issues"
+  },
+  "homepage": "https://github.com/w-xuefeng/DeepClone#readme"
+}

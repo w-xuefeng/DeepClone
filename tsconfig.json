@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "es7"
+   ]
+  },
+  "include": [
+    "src/**/*",
+    "test/**/*",
+    "index.ts"
+  ],
+}
