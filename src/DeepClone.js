@@ -64,7 +64,7 @@ var DeepClone = /** @class */ (function () {
             else {
                 if (rsObj === null)
                     return null;
-                // 如果时 null，直接返回 null
+                // 如果是 null，直接返回 null
                 Object.keys(rsObj).forEach(function (key) {
                     if (rsObj.hasOwnProperty(key)) {
                         rsObj[key] = _this.parseCircularReference(rsObj[key]);
@@ -103,7 +103,7 @@ var DeepClone = /** @class */ (function () {
             else {
                 if (src === null)
                     return null;
-                // 如果时 null，直接返回 null
+                // 如果是 null，直接返回 null
                 target = {};
                 Object.keys(src).forEach(function (key) {
                     if (src.hasOwnProperty(key)) {

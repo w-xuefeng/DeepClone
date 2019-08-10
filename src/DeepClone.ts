@@ -53,7 +53,7 @@ class DeepClone {
         // 递归深解析循环引用
       } else {
         if (rsObj === null) return null;
-        // 如果时 null，直接返回 null
+        // 如果是 null，直接返回 null
         Object.keys(rsObj).forEach(key => {
           if (rsObj.hasOwnProperty(key)) {
             rsObj[key] = this.parseCircularReference(rsObj[key]);
