@@ -1,29 +1,30 @@
 "use strict";
-exports.__esModule = true;
-var DeepClone_1 = require("../src/DeepClone");
-var dep = new DeepClone_1["default"]();
-var testObj = {
-    num: 123,
-    str: "string",
-    obj: {
-        array: [
-            undefined,
-            null,
-            0,
-            false
-        ]
-    }
-};
-var deep1 = dep.deepClone(testObj);
-console.log(deep1);
-console.log(deep1 === testObj);
-var testCrObjParent = { value: 100, child: null };
-var testCrObjChild = { value: 50, parent: null };
-testCrObjParent.child = testCrObjChild;
-testCrObjChild.parent = testCrObjParent;
-var deepcr = dep.deepClone(testCrObjParent);
+var _a;
+Object.defineProperty(exports, "__esModule", { value: true });
+var deepClone_1 = require("../src/deepClone");
+var testObj = (_a = {
+        num: 123,
+        str: 'string',
+        obj: {
+            array: [void 0, null, 0, false],
+        },
+        bool: true,
+        func: function () { return 'function'; },
+        map: new Map([['key', 'value']]),
+        set: new Set([1, 2, 3, 4]),
+        regExp: /^\w+\d{0,4}\w?$/
+    },
+    _a[Symbol('symbol')] = 'symbolKey',
+    _a.symbol = Symbol('value'),
+    _a.date = new Date('2001-01-01'),
+    _a.cr = null,
+    _a.crArr = [],
+    _a);
+var value = (0, deepClone_1.default)(testObj);
+console.log(value);
+console.log(value === testObj, value.map === testObj.map, value.set === testObj.set, value.regExp === testObj.regExp, value.func === testObj.func, value.date === testObj.date);
+testObj.cr = testObj;
+testObj.crArr.push(testObj);
+var deepcr = (0, deepClone_1.default)(testObj);
 console.log(deepcr);
-console.log(deepcr === testCrObjParent);
-var deepcrparse = dep.cloneAndParseCR(testCrObjParent);
-console.log(deepcrparse);
-console.log(deepcrparse === testCrObjParent);
+console.log(deepcr === testObj);

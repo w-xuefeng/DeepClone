@@ -1,3 +1,3 @@
-import DeepClone from './src/DeepClone';
+import deepClone from './src/deepClone';
 
-export default DeepClone;
+export default deepClone;

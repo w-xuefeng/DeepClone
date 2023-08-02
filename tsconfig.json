@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
     "lib": [
       "dom",
       "es7"
-   ]
+    ]
   },
   "include": [
     "src/**/*",

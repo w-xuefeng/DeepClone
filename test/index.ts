@@ -1,31 +1,36 @@
-import DeepClone from '../src/DeepClone';
+import deepClone from '../src/deepClone';
 
-const dep = new DeepClone();
 let testObj = {
   num: 123,
-  str: "string",
+  str: 'string',
   obj: {
-    array: [
-      undefined,
-      null,
-      0,
-      false
-    ]
-  }
-}
-let deep1 = dep.deepClone(testObj);
-console.log(deep1)
-console.log(deep1 === testObj);
+    array: [void 0, null, 0, false],
+  },
+  bool: true,
+  func: () => 'function',
+  map: new Map([['key', 'value']]),
+  set: new Set([1, 2, 3, 4]),
+  regExp: /^\w+\d{0,4}\w?$/,
+  [Symbol('symbol')]: 'symbolKey',
+  symbol: Symbol('value'),
+  date: new Date('2001-01-01'),
+  cr: null,
+  crArr: [],
+};
+const value = deepClone(testObj);
+console.log(value);
+console.log(
+  value === testObj,
+  value.map === testObj.map,
+  value.set === testObj.set,
+  value.regExp === testObj.regExp,
+  value.func === testObj.func,
+  value.date === testObj.date,
+);
 
-let testCrObjParent = { value: 100 , child: null };
-let testCrObjChild = { value: 50, parent: null };
-testCrObjParent.child = testCrObjChild;
-testCrObjChild.parent = testCrObjParent;
+testObj.cr = testObj;
+testObj.crArr.push(testObj);
 
-let deepcr = dep.deepClone(testCrObjParent);
-console.log(deepcr)
-console.log(deepcr === testCrObjParent);
-
-let deepcrparse = dep.cloneAndParseCR(testCrObjParent);
-console.log(deepcrparse)
-console.log(deepcrparse === testCrObjParent);
+const deepcr = deepClone(testObj);
+console.log(deepcr);
+console.log(deepcr === testObj);

@@ -1,4 +1,4 @@
 "use strict";
-exports.__esModule = true;
-var DeepClone_1 = require("./src/DeepClone");
-exports["default"] = DeepClone_1["default"];
+Object.defineProperty(exports, "__esModule", { value: true });
+var deepClone_1 = require("./src/deepClone");
+exports.default = deepClone_1.default;
